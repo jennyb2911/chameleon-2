@@ -4,6 +4,7 @@ import numpy as np
 import psycopg2
 import json
 import time
+import config as c
 from scipy.special import expit
 
 detector = dlib.get_frontal_face_detector()
@@ -26,12 +27,12 @@ class Inside(object):
 
 
     def __init__(self):
-        self.conn = psycopg2.connect("dbname=people host=127.0.0.1 port=5432")
+        self.conn = psycopg2.connect("dbname=" + c.config["Db"]["dbname"] + " host=" + c.config["Db"]["Host"] + " port=" + c.config["Db"]["Port"])
         self.cur = self.conn.cursor()
 
 
     def get_feature_repo(self):
-        self.cur.execute("SELECT id,name,feature,face_img FROM face_test WHERE status=0")
+        self.cur.execute("SELECT id,name,feature,face_img FROM " + c.config["Db"]["table"] + " WHERE status=0")
         self.repo = self.cur.fetchall()
 
 

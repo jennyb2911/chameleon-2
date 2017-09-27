@@ -3,16 +3,12 @@ from __future__ import print_function
 from imutils.video import WebcamVideoStream
 from classifier import inside
 
-import json
 import argparse
 import imutils
 import cv2
-import configparser
 import platform
+import config as c
 
-#config
-config = configparser.ConfigParser()
-config.read(filenames='config.ini')
 
 # stream source location
 # eg: I use HIKVISION IPCAM for captruing frames, so I set VideoStream Source as `rtsp://admin:admin123@192.168.1.91:554/h264/ch01/main/av_stream`
@@ -31,11 +27,9 @@ if args.resource is None:
 elif args.resource == '0':
     args.resource = 0
 
-if args.socre is None:
-    args.score = config['Standard']['Score']
+if args.score is None:
+    args.score = c.config['Standard']['Score']
 
-# created a *threaded* video stream, allow the camera sensor to warmup,
-# and start the FPS counter
 print("[capture start]...")
 
 vs = WebcamVideoStream(src=args.resource).start()
@@ -53,11 +47,10 @@ def face_request(frame, classifier=None):
     :param classifier:
     :return:
     '''
+    s = float(args.score)
+    res = classifier.match(frame, s)
 
-    b, res = classifier.match(frame)
-
-    if b:
-        res = json.dumps(res.tolist(), ensure_ascii=False)
+    # if b:
     print(res)
 
 
