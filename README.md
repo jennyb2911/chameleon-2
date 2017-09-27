@@ -1,6 +1,5 @@
 # chameleon
-Mini Face-recognition Client
-简单的人脸识别端小程序
+Mini Face-recognition Client 简单的人脸识别端小脚本
 
 ## 环境
 1. Python-3.4+
@@ -11,8 +10,12 @@ Mini Face-recognition Client
 
 ## 起步
 + **搭建本机的 python3+opencv3+dlib 环境**
-> 可以参考洋吴克的教程[这里](https://www.pyimagesearch.com/2017/04/17/real-time-facial-landmark-detection-opencv-python-dlib/)
-  当然如果你嫌烦，或者机器真的有问题怎么也装不成功，那可以尝试我们自制的[docker镜像](https://hub.docker.com/r/adoo/python3-opencv3-dlib/)
+可以参考洋吴克的教程[这里](https://www.pyimagesearch.com/2017/04/17/real-time-facial-landmark-detection-opencv-python-dlib/)<br>
+当然如果你嫌烦，或者机器真的有问题怎么也装不成功，那可以尝试我们自制的[docker镜像](https://hub.docker.com/r/adoo/python3-opencv3-dlib/)<br>
+
++ **原理介绍**
+[用深度学习识别人脸](https://zhuanlan.zhihu.com/p/24567586)<br>
+此脚本也是用的欧式测距，128个特征值作为矩阵存放在了postgresql中（完全可以换nosql数据库）。
 
 
 ## 一些错误提示
