@@ -17,6 +17,9 @@ Mini Face-recognition Client 简单的人脸识别端小脚本
 [用深度学习识别人脸](https://zhuanlan.zhihu.com/p/24567586)<br>
 此脚本也是用的欧式测距，128个特征值作为矩阵存放在了postgresql中（完全可以换nosql数据库）。
 
++ **导入数据**
+可以利用 init_faces.py 导入你需要的人脸数据，源数据可以是满满一文件夹的头像。<br>
+图片名就是这张脸的唯一名字。
 
 ## 一些错误提示
 error1: https://stackoverflow.com/questions/32703296/dyld-library-not-loaded-usr-local-lib-libjpeg-8-dylib-homebrew-php

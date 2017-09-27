@@ -2,6 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f2b4c9af-fa21-47dd-a800-7fda1784b470" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/init_faces.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -17,9 +19,22 @@
       <file leaf-file-name="README.md" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.md">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="315">
+              <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="init_faces.py" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/init_faces.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="288">
+              <caret line="62" column="23" lean-forward="true" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
+              <folding>
+                <element signature="e#56#74#0" expanded="true" />
+                <marker date="1506501468000" expanded="true" signature="1223:1289" ph="INSERT INTO face_test... " />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -49,8 +64,8 @@
       <file leaf-file-name="inside.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/classifier/inside.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="215">
-              <caret line="34" column="111" lean-forward="true" selection-start-line="34" selection-start-column="111" selection-end-line="34" selection-end-column="111" />
+            <state relative-caret-position="140">
+              <caret line="29" column="146" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="146" />
               <folding>
                 <element signature="e#24#35#0" expanded="true" />
                 <marker date="1506500403000" expanded="true" signature="1086:1169" ph="SELECT id,na... WHERE" />
@@ -93,6 +108,7 @@
         <option value="$PROJECT_DIR$/config.py" />
         <option value="$PROJECT_DIR$/single_detector" />
         <option value="$PROJECT_DIR$/classifier/inside.py" />
+        <option value="$PROJECT_DIR$/init_faces.py" />
         <option value="$PROJECT_DIR$/README.md" />
       </list>
     </option>
@@ -457,18 +473,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/classifier/inside.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="215">
-          <caret line="34" column="111" lean-forward="true" selection-start-line="34" selection-start-column="111" selection-end-line="34" selection-end-column="111" />
-          <folding>
-            <element signature="e#24#35#0" expanded="true" />
-            <marker date="1506500403000" expanded="true" signature="1086:1169" ph="SELECT id,na... WHERE" />
-            <marker date="1506500403000" expanded="true" signature="1086:2066" ph="SELECT id,na... WHERE" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="45">
@@ -503,10 +507,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/classifier/inside.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="29" column="146" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="146" />
+          <folding>
+            <element signature="e#24#35#0" expanded="true" />
+            <marker date="1506500403000" expanded="true" signature="1086:1169" ph="SELECT id,na... WHERE" />
+            <marker date="1506500403000" expanded="true" signature="1086:2066" ph="SELECT id,na... WHERE" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/init_faces.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="62" column="23" lean-forward="true" selection-start-line="62" selection-start-column="23" selection-end-line="62" selection-end-column="23" />
+          <folding>
+            <element signature="e#56#74#0" expanded="true" />
+            <marker date="1506501468000" expanded="true" signature="1223:1289" ph="INSERT INTO face_test... " />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/README.md">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+        <state relative-caret-position="315">
+          <caret line="21" column="14" lean-forward="false" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
           <folding />
         </state>
       </provider>
