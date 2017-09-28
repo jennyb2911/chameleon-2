@@ -14,6 +14,15 @@ Mini Face-recognition Client 简单的人脸识别端小脚本
 可以参考洋吴克的教程[这里]。(https://www.pyimagesearch.com/2017/04/17/real-time-facial-landmark-detection-opencv-python-dlib/)<br>
 当然如果你嫌烦，或者机器真的有问题怎么也装不成功，那可以尝试我们自制的[docker镜像]。(https://hub.docker.com/r/adoo/python3-opencv3-dlib/)<br>
 
++ **运行**
+
+如果你是直接用的本机环境，直接运行single-detector就可以了。eg: python3 single_detector.py -r rtsp://admin:admin123@192.168.2.95:554/h264/ch01/main/av_stream -s 0.88<br>
+如果用docker，请运行﻿docker run -dit -v /your/code/path:/srv/chameleon --name face adoo/python3-opencv3-dlib 。
+
++ **视频源**
+
+默认是调用本机的摄像头，用-r参数控制。同时也接受所有满足rtsp协议的视频源。详见single-detector line13 的注释说明。
+
 + **原理介绍**
 
 [用深度学习识别人脸](https://zhuanlan.zhihu.com/p/24567586)<br>
