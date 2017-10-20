@@ -8,6 +8,8 @@ import imutils
 import cv2
 import platform
 import config as c
+import stp
+import json
 
 
 # stream source location
@@ -18,11 +20,13 @@ import config as c
 
 newParser = argparse.ArgumentParser()
 newParser.add_argument("-r", "--resource", dest="resource", help="Select a Input Frame Resource Link")
-newParser.add_argument("-s", "--score", dest="score", help="Set a lowest mark of Face-match")
+newParser.add_argument("-s", "--score", dest="score", help="Set an underscore of Face-match")
 args = newParser.parse_args()
 
+mqueue = stp.Messenger(host=c.config['Stomp']['Host'], destination=c.config['Stomp']['Destination'])
+
 if args.resource is None:
-    print("Pls set an input resource.")
+    print("Pls set an input frame resource.")
     exit(0)
 elif args.resource == '0':
     args.resource = 0
@@ -47,10 +51,17 @@ def face_request(frame, classifier=None):
     :param classifier:
     :return:
     '''
-    s = float(args.score)
-    res = classifier.match(frame, s)
+    # eg1: match face locally and give the result
+    # s = float(args.score)
+    # res = classifier.match(frame, s)
+    # print(res)
 
-    # if b:
+    # eg2: match and offer the vector array
+    b, res = classifier.feature_calc(frame)
+    if b:
+        res = json.dumps(res.tolist(), ensure_ascii=False)
+        mqueue.addQueue(jstring=res)
+
     print(res)
 
 

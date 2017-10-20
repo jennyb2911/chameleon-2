@@ -6,7 +6,7 @@ Mini Face-recognition Client 简单的人脸识别端小脚本
 2. PostgreSQL-9.6.3
 4. OpenCV3
 5. dlib-19.4
-6. docker-17.06（可选）
+6. docker-17.06（推荐）
 
 ## 起步
 + **搭建本机的 python3+opencv3+dlib 环境**
