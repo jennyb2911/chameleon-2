@@ -1,29 +1,58 @@
 # -*- coding: utf-8 -*-
 import dlib
+import cv2
 import numpy as np
 import psycopg2
 import json
 import time
+import base64
 import config as c
 from scipy.special import expit
+from imutils import face_utils
 
 detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor('./shape/shape_predictor_68_face_landmarks.dat')
 recognition = dlib.face_recognition_model_v1('./shape/dlib_face_recognition_resnet_model_v1.dat')
 
+qt = 1
+
 class Inside(object):
 
-    def feature_calc(self, frame):
+    def frame_sketch(self, frame, qfunc):
+        # global qt
+        recs = detector(frame, 1)
+        if len(recs) >= 1:
+            try:
+                for (i, rect) in enumerate(recs):
+                    (x, y, w, h) = face_utils.rect_to_bb(rect)
+                    rect_img = frame[y - 10: y + h + 10, x - 10: x + w + 10]
+
+                    _, buffer = cv2.imencode('.jpg', rect_img)
+                    # cv2.imwrite(str(qt) + '.jpg', rect_img)
+                    # qt = qt + 1
+                    jpg_as_text = base64.b64encode(buffer)
+                    qfunc(jpg_as_text)
+                    return True
+            except Exception as e:
+                return False
+        else:
+            return False
+
+
+
+    def feature_calc(self, frame, qfunc):
         # get feature
         recs = detector(frame, 1)
         if len(recs) >= 1:
-            shape = predictor(frame, recs[0])
-            # landmarks
-            face_descriptor = recognition.compute_face_descriptor(frame, shape)
-            int_arr = np.array([int(x * 10000) for x in face_descriptor])
-            return True, int_arr
+            for r in recs:
+                shape = predictor(frame, r)
+                # landmarks
+                face_descriptor = recognition.compute_face_descriptor(frame, shape)
+                int_arr = np.array([int(x * 10000) for x in face_descriptor])
+                qfunc(json.dumps(int_arr.tolist(), ensure_ascii=False))
+            return True
         else:
-            return False, None
+            return False
 
 
     def __init__(self):

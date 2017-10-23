@@ -38,7 +38,7 @@ def feature_calc(frame):
 
 def add_face_db(n, f, fn):
     try:
-        cur.execute("INSERT INTO face_test(name, feature, face_img) VALUES (%s, %s, %s)", (n, f, fn))
+        cur.execute("INSERT INTO " + c.config["Db"]["table"] + "(name, feature, face_img) VALUES (%s, %s, %s)", (n, f, fn))
         print('Add ' + n + ' Successfully')
     except Exception as e:
         print(n + ' insert failed')
@@ -49,7 +49,7 @@ def init_faces(dir):
         remark = os.path.splitext(filename)[0]
         ext = os.path.splitext(filename)[1]
         try:
-            if ext == '.jpg' or ext == '.jpeg':
+            if ext == '.jpg' or ext == '.jpeg' or ext == '.png':
                 frame = cv2.imread(dir + '/' + filename)
                 b, np = feature_calc(frame)
                 if b :

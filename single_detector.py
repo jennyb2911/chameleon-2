@@ -9,8 +9,6 @@ import cv2
 import platform
 import config as c
 import stp
-import json
-
 
 # stream source location
 # eg: I use HIKVISION IPCAM for captruing frames, so I set VideoStream Source as `rtsp://admin:admin123@192.168.1.91:554/h264/ch01/main/av_stream`
@@ -42,10 +40,10 @@ def face_request(frame, classifier=None):
     '''
     Send your frame into the classifier
     #### You can save your frame to check if base64 works well ####
-    # imgdata = base64.b64decode(str(ls, encoding = "utf-8"))
-    # file = open('2.jpg', 'wb')
-    # file.write(imgdata)
-    # file.close()
+    imgdata = base64.b64decode(str(ls, encoding = "utf-8"))
+    file = open('2.jpg', 'wb')
+    file.write(imgdata)
+    file.close()
     ####
     :param frame:
     :param classifier:
@@ -57,11 +55,8 @@ def face_request(frame, classifier=None):
     # print(res)
 
     # eg2: match and offer the vector array
-    b, res = classifier.feature_calc(frame)
-    if b:
-        res = json.dumps(res.tolist(), ensure_ascii=False)
-        mqueue.addQueue(jstring=res)
-
+    # b, res = classifier.feature_calc(frame)
+    res = classifier.frame_sketch(frame, qfunc=mqueue.addQueue)
     print(res)
 
 
@@ -72,7 +67,6 @@ if __name__ == '__main__':
     while True:
         frame = vs.read()
         frame = imutils.resize(frame, width=500)
-
         face_request(frame, classifier)
 
         # display on the screen
