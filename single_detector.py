@@ -67,7 +67,8 @@ if __name__ == '__main__':
     while True:
         frame = vs.read()
         frame = imutils.resize(frame, width=500)
-        face_request(frame, classifier)
+        if frame is not None:
+            face_request(frame, classifier)
 
         # display on the screen
         if platform.system() != 'Linux':
