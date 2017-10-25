@@ -22,7 +22,6 @@ detector = dlib.get_frontal_face_detector()
 predictor = dlib.shape_predictor('./shape/shape_predictor_68_face_landmarks.dat')
 recognition = dlib.face_recognition_model_v1('./shape/dlib_face_recognition_resnet_model_v1.dat')
 
-# construct the argument parser and parse the arguments
 
 def feature_calc(frame):
     recs = detector(frame, 1)
@@ -43,6 +42,7 @@ def add_face_db(n, f, fn):
     except Exception as e:
         print(n + ' insert failed')
         print(str(e))
+
 
 def init_faces(dir):
     for filename in os.listdir(dir):
