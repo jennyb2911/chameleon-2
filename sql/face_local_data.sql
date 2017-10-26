@@ -18,6 +18,7 @@ create unique index face_local_data_name_uindex
 ;
 
 # face distance compare
+# only useful when you use Postgresql
 CREATE EXTENSION IF NOT EXISTS cube;
 
 DROP FUNCTION IF EXISTS rogue_public_compare_face(target_feature INTEGER[128], OUT target_id INTEGER, OUT targer_diff NUMERIC);
