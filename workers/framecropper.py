@@ -26,4 +26,5 @@ class FrameCropper:
             except Exception:
                 return False
         else:
+            callback("1")
             return False
